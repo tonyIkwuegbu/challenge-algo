@@ -5,15 +5,19 @@ single line of two space-separated long integers.*/
 
 var arr = [1, 2, 3, 4, 5];
 function miniMaxSum(arr) {
-    let min = +Infinity;
-    let max = -Infinity;
-    let sum = 0;
-        for (var i = 0; i < arr.length; i++) {
-            sum += arr[i];
-            if (arr[i] < min)
-                min = arr[i];
-            if (arr[i] > max)
+        let max = arr[0];
+        let min = arr[0];
+        let sum = 0;
+        for (let i = 0; i<5; i++){
+            if (max < arr[i]){
                 max = arr[i];
+            }
+            if (min > arr[i]){
+                min = arr[i];
+            }
+            sum += arr[i];
         }
-        return [sum - max, sum - min]; 
-    }
+           let maxSum = sum - min;
+           let minSum = sum - max;
+        return [minSum + " " + maxSum];
+        }
