@@ -1,15 +1,22 @@
 /*Given a square matrix, calculate the absolute difference 
 between the sums of its diagonals.*/
 
-  var arr =     [[11, 2, 4], [4, 5, 6], [10, 8, -12]]
+  var arr = [[11, 2, 4], [4, 5, 6], [10, 8, -12]];
 
-function diagonalDifference(arr) {
-var result = [0, 0];
-
- for (var i = 0; i < arr.length; i++) {
-     let a = arr[i][0+1];
-     let b = arr[i][arr.length-1-i];
-     result = [result[0] +a, result[i]+b]
- }
-   return Math.abs(result[0] - result[1]);
- }
+function calculateDiagonals(arr){
+    var n = arr.length;
+    var d1 = 0;
+    var d2 = 0;
+    for(var i=0; i<n; i++){
+        for(var j=0; j<n; j++){
+            
+            if(i === j) { 
+                d1 +=  arr[i][j];
+            }
+            if(i + j === n - 1){
+                d2 += arr[i][j];
+            }
+        }
+    }
+    return Math.abs(d1 - d2);
+}
